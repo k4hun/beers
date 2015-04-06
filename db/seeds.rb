@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do
+  Style.create(name: Faker::Lorem.word, description: Faker::Lorem.sentence)
+end
+
+5.times do
+  Brewery.create(name: Faker::Lorem.sentence(2))
+end
+
+rand_id = Random.new
+
+30.times do
+ Beer.create(name: Faker::Lorem.word, brewery_id: rand_id.rand(1..5), style_id: rand_id.rand(1..10), 
+  description: Faker::Lorem.sentence, rating: rand_id.rand(1..5))
+end
