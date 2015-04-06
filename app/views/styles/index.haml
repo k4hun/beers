@@ -1,0 +1,17 @@
+%h2 Styles index
+%h3= link_to 'Add new style', new_style_path
+.col-md-8
+  %table.table.table-striped
+    %tr
+      %th Name
+      %th Description
+      %th Beers
+      %th Actions
+    - @styles.each do |style|
+      %tr
+        %td= style.name
+        %td= style.description
+        %td= style.beers.count
+        %td
+          = link_to 'Edit', edit_style_path(style)
+          = link_to 'Delete', style_path(style), method: 'delete'
