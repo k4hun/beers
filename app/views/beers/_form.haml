@@ -8,10 +8,10 @@
         %th= f.label :description 
         %td= f.text_field :description, class: 'form-control'
       %tr
-        %th= f.label :style 
+        %th= f.label :style_id
         %td= f.select :style_id, options_from_collection_for_select(Style.all, 'id', 'name'), class: 'form-control'
       %tr
-        %th= f.label :brewery 
+        %th= f.label :brewery_id 
         %td= f.select :brewery_id, options_from_collection_for_select(Brewery.all, 'id', 'name'), class: 'form-control'
       %tr
         %th= f.label :rating 

@@ -50,3 +50,5 @@ gem 'devise'
 gem 'haml-rails'
 gem 'faker', '~> 1.4.3'
 gem 'bootstrap-sass', '~> 3.3.4.1'
+
+gem 'quiet_assets', group: :development 

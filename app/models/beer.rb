@@ -14,6 +14,6 @@ class Beer < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :style_id, presence: true
-  validates :brewery_id, presence: true
+  validates :style, presence: true
+  validates :brewery, presence: true
 end
