@@ -11,5 +11,9 @@
         %li= link_to 'Beers', '#'
         %li= link_to 'Styles', styles_path
         %li= link_to 'Breweries', '#'
+    -if flash[:notice].present?
+      .alert.alert-info= flash[:notice] 
+    -if flash[:error].present?
+      .alert.alert-danger= flash[:error]
     .container
       = yield

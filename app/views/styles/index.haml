@@ -13,5 +13,5 @@
         %td= style.description
         %td= style.beers.count
         %td
-          = link_to 'Edit', edit_style_path(style)
-          = link_to 'Delete', style_path(style), method: 'delete'
+          = link_to 'Edit', edit_style_path(style), class: 'btn btn-sm btn-warning'
+          = link_to 'Delete', style_path(style), method: 'delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
