@@ -7,7 +7,10 @@
         = beer.photo.present? ? (image_tag beer.photo.url(:normal), class: 'img-thumbnail') : '---'
         .caption
           %h3= beer.name
-          %h4= "#{beer.style.name} from #{beer.brewery.name}"
+          %h4
+            = link_to beer.style.name, beers_main_path(style_id: beer.style.id)
+            from 
+            = link_to beer.brewery.name, beers_main_path(brewery_id: beer.brewery.id)
           %p
             -(beer.rating).times do
               = image_tag 'rate_star.png', size: "20x20" 

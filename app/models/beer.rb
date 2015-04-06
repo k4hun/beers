@@ -18,5 +18,14 @@ class Beer < ActiveRecord::Base
   validates :brewery, presence: true
 
   scope :latest, -> { order('created_at DESC') }
+  scope :by_style, -> (style){ where('style_id = ?', style) }
+  scope :by_brewery, -> (brewery){ where('brewery_id = ?', brewery) }
   self.per_page = 9
+
+  def self.search(options = {})
+    beers = Beer.all
+    beers = Beer.by_style(options[:style_id]) if options[:style_id].present?
+    beers = Beer.by_brewery(options[:brewery_id]) if options[:brewery_id].present?
+    beers
+  end
 end
