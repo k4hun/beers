@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Admin.create(email: 'admin@example.com', password: '12345678')
+
 10.times do
   Style.create(name: Faker::Lorem.word, description: Faker::Lorem.sentence)
 end
