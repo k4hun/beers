@@ -16,4 +16,7 @@ class Beer < ActiveRecord::Base
   validates :description, presence: true
   validates :style, presence: true
   validates :brewery, presence: true
+
+  scope :latest, -> { order('created_at DESC') }
+  self.per_page = 9
 end

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :admins
 
   get 'admin' => 'beers#index'
+  get 'beers_main' => 'public#index'
+  get 'about' => 'public#about'
+  get 'contact' => 'public#contact'
 
   resources :styles, path: 'admin/styles'
   resources :breweries, path: 'admin/breweries'
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'public#about'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,15 @@
+%h2 Beers
+- @beers.each_slice(3) do |slice|
+  .row
+  - slice.each do |beer|
+    .col-md-4
+      .thumbnail  
+        = beer.photo.present? ? (image_tag beer.photo.url(:normal), class: 'img-thumbnail') : '---'
+        .caption
+          %h3= beer.name
+          %h4= "#{beer.style.name} from #{beer.brewery.name}"
+          %p
+            -(beer.rating).times do
+              = image_tag 'rate_star.png', size: "20x20" 
+          %p= short_desc(beer.description)
+.col-md-12.text-center.apple_pagination= will_paginate @beers
