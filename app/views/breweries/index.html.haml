@@ -1,0 +1,15 @@
+%h2 Breweries index
+%h3= link_to 'Add new brewery', new_brewery_path
+.col-md-8
+  %table.table.table-striped
+    %tr
+      %th Name
+      %th Logo
+      %th Actions
+    - @breweries.each do |brewery|
+      %tr
+        %td= brewery.name
+        %td= brewery.logo.present? ? (image_tag brewery.logo.url(:thumb)) : '---'
+        %td
+          = link_to 'Edit', edit_brewery_path(brewery), class: 'btn btn-sm btn-warning'
+          = link_to 'Delete', brewery_path(brewery), method: 'delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'

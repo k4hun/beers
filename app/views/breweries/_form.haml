@@ -1,0 +1,13 @@
+.col-md-8
+  =form_for @brewery do |f|
+    %table.table.table-striped
+      %tr
+        %th= f.label :name 
+        %td= f.text_field :name, class: 'form-control'
+      %tr
+        %th= f.label :logo
+        %td= f.file_field :logo
+    = f.submit 'Send', class: 'btn btn-primary' 
+    = link_to 'Back', { action: "index" }, class: 'btn btn-warning'
+  %br
+  = render partial: 'validation_errors', locals: { zone: @brewery }
