@@ -1,7 +1,11 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  
   devise_for :admins
-  resources :styles
-  resources :breweries
+
+  get 'admin' => 'beers#index'
+
+  resources :styles, path: 'admin/styles'
+  resources :breweries, path: 'admin/breweries'
+  resources :beers, path: 'admin/beers'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

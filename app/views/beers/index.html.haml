@@ -1,0 +1,23 @@
+%h2 Beers index
+%h3= link_to 'Add new beer', new_beer_path
+.col-md-8
+  %table.table.table-striped
+    %tr
+      %th Name
+      %th Description
+      %th Style
+      %th Brewery
+      %th Rating
+      %th Photo
+      %th Actions
+    - @beers.each do |beer|
+      %tr
+        %td= beer.name
+        %td= beer.description
+        %td= beer.style.name if beer.style.present?
+        %td= beer.brewery.name
+        %td= beer.rating
+        %td= beer.photo.present? ? (image_tag beer.photo.url(:thumb)) : '---'
+        %td
+          = link_to 'Edit', edit_beer_path(beer), class: 'btn btn-sm btn-warning'
+          = link_to 'Delete', beer_path(beer), method: 'delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
