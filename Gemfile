@@ -45,3 +45,5 @@ end
 gem 'paperclip', '~> 4.2'
 gem 'devise'
 gem 'haml-rails'
+gem 'faker', '~> 1.4.3'
+gem 'bootstrap-sass', '~> 3.3.4.1'
