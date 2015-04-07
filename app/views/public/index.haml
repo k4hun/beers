@@ -12,7 +12,7 @@
             from 
             = link_to beer.brewery.name, beers_main_path(brewery_id: beer.brewery.id)
           %p
-            -(beer.rating).times do
-              = image_tag 'rate_star.png', size: "20x20" 
+            -rating_stars(beer.rating).each do |image|
+              = image
           %p= short_desc(beer.description)
 .col-md-12.text-center.apple_pagination= will_paginate @beers
