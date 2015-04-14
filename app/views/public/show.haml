@@ -1,0 +1,11 @@
+%h1= "#{@beer.name} (#{@beer.style.name})"
+%h2 from
+%h1= @beer.brewery.name
+%hr
+.col-md-6
+  %h1 About beer:
+  %h2= @beer.description
+.col-md-6
+  = @beer.photo.present? ? (image_tag @beer.photo.url(:normal), class: 'img-thumbnail') : '---'
+%hr
+%h1 Comments

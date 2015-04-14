@@ -1,9 +1,9 @@
 %h2 Styles
 %ul
   - side_styles.each do |style|
-    %li= style.name
+    %li= link_to style.name, beers_main_path(style_id: style.id)
 
 %h2 Recently commented
 %ul
-  - recently_commented.each do |style|
-    %li= style.name
+  - recently_commented.each do |beer|
+    %li= link_to beer.name, show_beer_path(id: beer.id)

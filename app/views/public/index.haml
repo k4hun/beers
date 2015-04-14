@@ -35,5 +35,7 @@
           %p
             -rating_stars(beer.rating).each do |image|
               = image
-          %p= short_desc(beer.description)
+          %p
+            = short_desc(beer.description)
+            = link_to 'more', show_beer_path(beer.id)
 .col-md-12.text-center.apple_pagination= will_paginate @beers

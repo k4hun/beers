@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :admins
 
   get 'admin' => 'beers#index'
-  get 'beers_main' => 'public#index'
+  get 'beers' => 'public#index', as: 'beers_main'
+  get 'beer/:id' => 'public#show', as: 'show_beer'
   get 'about' => 'public#about'
   get 'contact' => 'public#contact'
 

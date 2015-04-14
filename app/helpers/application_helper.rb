@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def recently_commented
-    Style.order(:name).limit(7)
+    Beer.order(:name).limit(7)
   end
 end
