@@ -1,0 +1,9 @@
+%h2 Styles
+%ul
+  - side_styles.each do |style|
+    %li= style.name
+
+%h2 Recently commented
+%ul
+  - recently_commented.each do |style|
+    %li= style.name

@@ -16,8 +16,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.recent {
-  background-color:red;
+.styles {
+  background: #421127;
+  color: white;
+}
+
+body {
+  margin-top:148px;
+}
+
+.menu {
+  text-align: center;
+  font-family: "Calibri";
+  font-weight: bold;
+  font-size: 25px;
+  background: #421127;
+  padding-top: 48px;
+
+  a {
+    color: white;
+  }
+}
+
+.navbar, .logo_img, .menu {
+  height: 148px;
+}
+
+.logo_img {
+  display: block;
+  width: 381px;
+  background: url(logo2.png);
+}
+
+.style_list { 
+  a { 
+    color: black;  
+  }
 }
 
 .apple_pagination {

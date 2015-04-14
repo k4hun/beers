@@ -5,14 +5,18 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body 
-    .container
-      %ul.nav.nav-tabs
-        %li= link_to 'About', about_path
-        %li= link_to 'Beers', beers_main_path
-        %li= link_to 'Contact', contact_path
+  %body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand.logo_img{href: root_path}
+        %ul.menu.nav-justified
+          %li{role: "navigation"}= link_to 'about', about_path
+          %li= link_to 'beers', beers_main_path
+          %li= link_to 'where to buy'
+          %li= link_to 'contact', contact_path
     .container
       .col-md-9
         = yield
-      .col-md-3.recent
-        = render 'recent_beers'
+      .col-md-3.styles
+        = render 'styles'

@@ -1,4 +1,25 @@
-%h2 Beers
+%h1 Beers
+%h2 Main ingredients
+.row.text-center
+  .col-md-3
+    = image_tag 'ingredients/water.jpg', size: '180x150'
+  .col-md-3
+    = image_tag 'ingredients/malts.jpg', size: '180x150'
+  .col-md-3
+    = image_tag 'ingredients/hops.jpg', size: '180x150'
+  .col-md-3
+    = image_tag 'ingredients/yeasts.jpg', size: '180x150'
+%h2 History
+%p Donec congue, tellus in malesuada fermentum, sem dui tristique diam, sit amet posuere eros metus vitae augue. Vivamus metus sem, imperdiet nec lacinia vitae, ornare non erat. Aliquam pharetra, turpis ut ornare pellentesque, lectus odio semper nibh, non tristique massa arcu id ante. Vestibulum nisi libero, tempor nec dolor nec, tempus iaculis lorem. Phasellus mauris sapien, bibendum ut convallis quis, feugiat ac nibh. Donec lacinia eget mauris eu congue. Nulla at enim eget risus molestie efficitur nec et erat. Fusce at iaculis purus. Morbi eget finibus odio. Donec ac sodales lectus, id finibus felis. Proin tempor gravida arcu ut ultrices. Aliquam quis cursus risus. Vivamus nisi augue, congue nec faucibus eu, congue eu orci. Nulla pulvinar, nisi at pellentesque tincidunt, ligula ex pellentesque tortor, a iaculis ante quam at lectus.
+%h2 Already tasted
+%p 
+  %ul.style_list
+    - @styles.each_slice(3) do |slice|
+      .row
+        - slice.each do |style|
+          .col-md-4
+            %li= link_to style.name, beers_main_path(style_id: style.id)
+    
 - @beers.each_slice(3) do |slice|
   .row
   - slice.each do |beer|
