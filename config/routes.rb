@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'beer/:id' => 'public#show', as: 'show_beer'
   get 'about' => 'public#about'
   get 'contact' => 'public#contact'
+  get 'shops' => 'public#shops'
 
   resources :styles, path: 'admin/styles'
   resources :breweries, path: 'admin/breweries'

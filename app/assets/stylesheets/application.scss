@@ -20,10 +20,17 @@
   margin-top: 148px;
   background: #421127;
   color: white;
+  a {
+   color: white;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #fe5f35;
+  }
 }
 
 .main-content {
-  margin-top:148px;
+  margin-top:165px;
 }
 
 .menu {
@@ -52,9 +59,18 @@
 }
 
 .style_list { 
-  a { 
+  a {     
     color: black;  
   }
+  a:hover {
+    text-decoration: none;
+    color: #fe5f35;
+  }
+}
+
+.ingredients {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .apple_pagination {
