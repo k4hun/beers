@@ -15,3 +15,22 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+var num = 1;
+
+function hide() {
+  $("#timer").fadeOut(500);
+}
+
+function timer() {
+  num++; if(num > 5) num = 1;
+  var file = "<%= Beer.find("+num+") %>"
+  document.getElementById("timer").innerHTML = file;
+  $("#timer").fadeIn(500);
+  setTimeout("timer()", 2000);
+  setTimeout("hide()", 1500);
+}
+
+function showLink() {
+  document.getElementById("link").style.display = 'block';
+}

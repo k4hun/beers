@@ -1,11 +1,28 @@
 %h1= "#{@beer.name} (#{@beer.style.name})"
 %h2 from
-%h1= @beer.brewery.name
-%hr
+.col-md-10
+  %h1= @beer.brewery.name
+.col-md-2
+  = @beer.brewery.logo.present? ? (image_tag @beer.brewery.logo.url(:thumb), class: 'img-thumbnail') : '---'
+%hr.col-md-12
 .col-md-6
   %h1 About beer:
   %h2= @beer.description
 .col-md-6
   = @beer.photo.present? ? (image_tag @beer.photo.url(:normal), class: 'img-thumbnail') : '---'
 %hr
-%h1 Comments
+.col-md-12
+  %h1 Comments
+  -@comments.each do |comment|
+    %blockquote
+      = comment.content
+    %cite= "#{comment.author} at #{comment.created_at.strftime("%m/%d/%Y %H:%M")}"
+    %hr
+.col-md-12
+  = form_for @comment do |f|
+    =f.hidden_field :beer_id, value: @beer.id
+    = f.label :author
+    = f.text_field :author
+    = f.label :content, 'Comment'
+    = f.text_field :content
+    = f.submit :post

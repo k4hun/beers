@@ -6,5 +6,7 @@ class PublicController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @comments = Comment.where(beer_id: params[:id]).order(:created_at)
+    @comment = Comment.new
   end
 end

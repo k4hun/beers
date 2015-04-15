@@ -1,6 +1,7 @@
 class Beer < ActiveRecord::Base
   belongs_to :style
   belongs_to :brewery
+  has_many :comments
 
   has_attached_file :photo, :styles => { :normal => "800x600>", :thumb => "200x150>"}
 
