@@ -21,11 +21,20 @@
         src: font-url('coleen.ttf') format("truetype");
 }
 
-.carousel_img {
+.beers-carousel {
+  height: 700px;
 }
 
 .content-header {
   font-family: "Coleen";
+  margin-bottom: 15px;
+  .text-center {
+   font-size: 120px;
+  }
+}
+
+.carousel-content {
+  padding-left: 120px;
 }
 
 .carousel.slide {
@@ -46,7 +55,7 @@
 }
 
 .main-content {
-  margin-top:165px;
+  margin-top:148px;
 }
 
 .menu {

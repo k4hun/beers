@@ -1,34 +1,43 @@
 = render 'content_header'
 
-.carousel.slide#carousel-example-generic{"data-ride" => 'carousel'}
-  %ol.carousel-indicators
-    %li.active{"data-target" => "#carousel-example-generic", "data-slide-to" => "0"}
-    %li{"data-target" => "#carousel-example-generic", "data-slide-to" => "1"}
-    %li{"data-target" => "#carousel-example-generic", "data-slide-to" => "2"}
+.beers-carousel.text-center
+  = link_to '<', 'javascript:prevSlide()', class: 'btn btn-default'
+  = link_to '1', 'javascript:setSlide(0)', class: 'btn btn-default'
+  = link_to '2', 'javascript:setSlide(1)', class: 'btn btn-default'
+  = link_to '3', 'javascript:setSlide(2)', class: 'btn btn-default'
+  = link_to '>', 'javascript:nextSlide()', class: 'btn btn-default'
+  - @recent_beers.take(3).each_with_index do |beer, index|
+    .carousel_item{style: 'display:none;', id: "slide#{index}"}= image_tag beer.photo.url(:normal) 
+/ .row.carousel-content
+/   .carousel.slide#carousel-example-generic{"data-ride" => 'carousel'}
+/     %ol.carousel-indicators
+/       %li.active{"data-target" => "#carousel-example-generic", "data-slide-to" => "0"}
+/       %li{"data-target" => "#carousel-example-generic", "data-slide-to" => "1"}
+/       %li{"data-target" => "#carousel-example-generic", "data-slide-to" => "2"}
 
-  .carousel-inner{role: 'listbox'}
-    - @recent_beers.take(3).each_with_index do |beer, index|
-      - if index == 0
-        .item.active
-          .carousel_img.text-center= image_tag beer.photo.url(:normal) 
-          .carousel-caption
-            %h2= beer.name
-            %h3= beer.style.name
-      - else
-        .item
-          .text-center= image_tag beer.photo.url(:normal)
-          .carousel-caption
-            %h2= beer.name
-            %h3= beer.style.name
+/     .carousel-inner{role: 'listbox'}
+/       - @recent_beers.take(3).each_with_index do |beer, index|
+/         - if index == 0
+/           .item.active
+/             .carousel_img.text-center= image_tag beer.photo.url(:normal) 
+/             .carousel-caption
+/               %h2= beer.name
+/               %h3= beer.style.name
+/         - else
+/           .item
+/             .text-center= image_tag beer.photo.url(:normal)
+/             .carousel-caption
+/               %h2= beer.name
+/               %h3= beer.style.name
 
-  %a.left.carousel-control{href: '#carousel-example-generic', role: 'button', 'data-slide' => 'prev'}
-    %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
-    %span.sr-only
-      Previous
-  %a.right.carousel-control{href: '#carousel-example-generic', role: 'button', 'data-slide' => 'next'}
-    %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
-    %span.sr-only
-      Next
+/     %a.left.carousel-control{href: '#carousel-example-generic', role: 'button', 'data-slide' => 'prev'}
+/       %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+/       %span.sr-only
+/         Previous
+/     %a.right.carousel-control{href: '#carousel-example-generic', role: 'button', 'data-slide' => 'next'}
+/       %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+/       %span.sr-only
+/         Next
 
 %h2 History
 %p Donec congue, tellus in malesuada fermentum, sem dui tristique diam, sit amet posuere eros metus vitae augue. Vivamus metus sem, imperdiet nec lacinia vitae, ornare non erat. Aliquam pharetra, turpis ut ornare pellentesque, lectus odio semper nibh, non tristique massa arcu id ante. Vestibulum nisi libero, tempor nec dolor nec, tempus iaculis lorem. Phasellus mauris sapien, bibendum ut convallis quis, feugiat ac nibh. Donec lacinia eget mauris eu congue. Nulla at enim eget risus molestie efficitur nec et erat. Fusce at iaculis purus. Morbi eget finibus odio. Donec ac sodales lectus, id finibus felis. Proin tempor gravida arcu ut ultrices. Aliquam quis cursus risus. Vivamus nisi augue, congue nec faucibus eu, congue eu orci. Nulla pulvinar, nisi at pellentesque tincidunt, ligula ex pellentesque tortor, a iaculis ante quam at lectus.

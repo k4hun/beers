@@ -1,4 +1,8 @@
-%h1
-  .content-header
-    = image_tag "menu/#{params[:action]}.png", size: '100x100'
-    = params[:action]
+.row.content-header
+  %h1
+    .col-md-2
+      = image_tag "menu/#{params[:action]}.png", size: '100x100'
+    .col-md-8.text-center
+      = params[:action]
+    .col-md-2
+      = image_tag "menu/#{params[:action]}.png", size: '100x100'

@@ -16,21 +16,47 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-var num = 1;
+var num = -1;
+var timer1 = 0;
+var timer2 = 0;
+ 
+function setSlide(id) {
+  clearTimeout(timer1);
+  clearTimeout(timer2);
 
-function hide() {
-  $("#timer").fadeOut(500);
+  hideSlide();
+  num = id-1;
+  timer1 = setTimeout("changeSlide()", 500);
 }
 
-function timer() {
-  num++; if(num > 5) num = 1;
-  var file = "<%= Beer.find("+num+") %>"
-  document.getElementById("timer").innerHTML = file;
-  $("#timer").fadeIn(500);
-  setTimeout("timer()", 2000);
-  setTimeout("hide()", 1500);
+function nextSlide() {
+  clearTimeout(timer1);
+  clearTimeout(timer2);
+
+  hideSlide();
+  console.log(num);
+  timer1 = setTimeout("changeSlide()", 500);
 }
 
-function showLink() {
-  document.getElementById("link").style.display = 'block';
+function prevSlide() {
+  clearTimeout(timer1);
+  clearTimeout(timer2);
+
+  hideSlide();
+  num-=2;
+  timer1 = setTimeout("changeSlide()", 500);
 }
+
+function hideSlide() {
+  $('#slide'+num).fadeOut('500');
+}
+
+function changeSlide() {
+  num++; if (num>2) num=0; else if (num<0) num=2
+  var id = "#slide" + num;
+  $(id).fadeIn('500');
+
+  timer1 = setTimeout("changeSlide()", 5000);
+  timer2 = setTimeout("hideSlide()", 4500);
+}
+
