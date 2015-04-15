@@ -1,0 +1,21 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %a.navbar-brand.logo_img{href: root_path}
+    %ul.menu.nav-justified
+      %li
+        = link_to (image_tag 'menu/about.png', size: '100x100'), about_path
+        %br
+        = link_to 'about me', about_path
+      %li 
+        = link_to (image_tag 'menu/beers.png', size: '100x100'), beers_main_path
+        %br
+        = link_to 'beers', beers_main_path
+      %li
+        = link_to (image_tag 'menu/shop.png', size: '100x100')
+        %br
+        = link_to 'where to buy'
+      %li
+        = link_to (image_tag 'menu/contact.png', size: '100x100'), contact_path
+        %br
+        = link_to 'contact', contact_path

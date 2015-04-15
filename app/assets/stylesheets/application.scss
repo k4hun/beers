@@ -17,11 +17,12 @@
 @import "bootstrap";
 
 .styles {
+  margin-top: 148px;
   background: #421127;
   color: white;
 }
 
-body {
+.main-content {
   margin-top:148px;
 }
 
@@ -31,10 +32,12 @@ body {
   font-weight: bold;
   font-size: 25px;
   background: #421127;
-  padding-top: 48px;
+  padding-top: 10px;
+  margin-bottom: 148px;
 
-  a {
+  a, a:hover {
     color: white;
+    text-decoration: none;
   }
 }
 

@@ -6,18 +6,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          %a.navbar-brand.logo_img{href: root_path}
-        %ul.menu.nav-justified
-          %li{role: "navigation"}= link_to 'about', about_path
-          %li= link_to 'beers', beers_main_path
-          %li= link_to 'where to buy'
-          %li= link_to 'contact', contact_path
+    = render 'menu_top'
     .container
       .col-md-9
         = flash[:error] if flash[:error].present?
-        = yield
+        .main-content= yield
       .col-md-3.styles
         = render 'styles'
