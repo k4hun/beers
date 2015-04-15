@@ -53,3 +53,4 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'will_paginate', '~> 3.0.6'
 
 gem 'quiet_assets', group: :development 
+gem "awesome_print", require:"ap"

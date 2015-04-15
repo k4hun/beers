@@ -16,6 +16,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+        font-family: "Coleen";
+        src: font-url('coleen.ttf') format("truetype");
+}
+
+.carousel_img {
+}
+
+.content-header {
+  font-family: "Coleen";
+}
+
+.carousel.slide {
+  width: 600px;
+}
+
 .styles {
   margin-top: 148px;
   background: #421127;
@@ -35,8 +51,7 @@
 
 .menu {
   text-align: center;
-  font-family: "Calibri";
-  font-weight: bold;
+  font-family: "Coleen";
   font-size: 25px;
   background: #421127;
   padding-top: 10px;
