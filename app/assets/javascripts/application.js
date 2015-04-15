@@ -25,25 +25,16 @@ function setSlide(id) {
   clearTimeout(timer2);
 
   hideSlide();
-  num = id-1;
-  timer1 = setTimeout("changeSlide()", 500);
-}
-
-function nextSlide() {
-  clearTimeout(timer1);
-  clearTimeout(timer2);
-
-  hideSlide();
-  console.log(num);
-  timer1 = setTimeout("changeSlide()", 500);
-}
-
-function prevSlide() {
-  clearTimeout(timer1);
-  clearTimeout(timer2);
-
-  hideSlide();
-  num-=2;
+  switch(id) {
+    case "next":
+      break;
+    case "prev":
+      num -=2;
+      break;
+    default:
+      num = id-1;
+      break;
+  }
   timer1 = setTimeout("changeSlide()", 500);
 }
 
