@@ -21,41 +21,9 @@
         src: font-url('coleen.ttf') format("truetype");
 }
 
-.beers-carousel {
-  height: 700px;
-}
-
-.content-header {
-  font-family: "Coleen";
-  margin-bottom: 15px;
-  .text-center {
-   font-size: 120px;
-  }
-}
-
-.carousel-content {
-  padding-left: 120px;
-}
-
-.carousel.slide {
-  width: 600px;
-}
-
-.styles {
-  margin-top: 148px;
-  background: #421127;
-  color: white;
-  a {
-   color: white;
-  }
-  a:hover {
-    text-decoration: none;
-    color: #fe5f35;
-  }
-}
-
-.main-content {
-  margin-top:148px;
+.container {
+  font-family: "Verdana";
+  font-size: 15px;
 }
 
 .menu {
@@ -64,7 +32,6 @@
   font-size: 25px;
   background: #421127;
   padding-top: 10px;
-  margin-bottom: 148px;
 
   a, a:hover {
     color: white;
@@ -82,7 +49,43 @@
   background: url(logo2.png);
 }
 
-.style_list { 
+.main-content {
+  margin-top:148px;
+}
+
+.beers-slider {
+  height: 700px;
+}
+
+.slider-nav {
+  margin-bottom: 10px;
+}
+
+.slider-side-left, .slider-side-right {
+  padding-top: 300px
+}
+
+.slider-item {
+  display: none;
+}
+
+.content-header {
+  font-family: "Coleen";
+  margin-bottom: 15px;
+  .text-center {
+   font-size: 120px;
+  }
+}
+
+.h2-header {
+  font-family: "Coleen";
+  text-align: center;
+}
+
+#tasted { 
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0px;
   a {     
     color: black;  
   }
@@ -90,11 +93,27 @@
     text-decoration: none;
     color: #fe5f35;
   }
+  li {
+    padding-bottom: 5px;
+  }
 }
 
 .ingredients {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.styles {
+  margin-top: 148px;
+  background: #421127;
+  color: white;
+  a {
+   color: white;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #fe5f35;
+  }
 }
 
 .apple_pagination {

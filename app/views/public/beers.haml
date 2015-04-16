@@ -1,16 +1,20 @@
 = render 'content_header'
 
-.beers-carousel.text-center
-  = link_to '<', 'javascript:setSlide("prev")', class: 'btn btn-default'
-  = link_to '1', 'javascript:setSlide(0)', class: 'btn btn-default'
-  = link_to '2', 'javascript:setSlide(1)', class: 'btn btn-default'
-  = link_to '3', 'javascript:setSlide(2)', class: 'btn btn-default'
-  = link_to '>', 'javascript:setSlide("next")', class: 'btn btn-default'
-  - @recent_beers.take(3).each_with_index do |beer, index|
-    .carousel_item{style: 'display:none;', id: "slide#{index}"}= image_tag beer.photo.url(:normal) 
+.beers-slider.text-center
+  .slider-nav
+    = link_to '1', 'javascript:setSlide(0)', class: 'btn btn-default', id: 'slider-nav-0'
+    = link_to '2', 'javascript:setSlide(1)', class: 'btn btn-default', id: 'slider-nav-1'
+    = link_to '3', 'javascript:setSlide(2)', class: 'btn btn-default', id: 'slider-nav-2'
+  .col-md-2.slider-side-left
+    = link_to '<', 'javascript:setSlide("prev")', class: 'btn btn-default'
+  .col-md-8
+    - @recent_beers.take(3).each_with_index do |beer, index|
+      .slider-item{id: "slide#{index}"}= image_tag beer.photo.url(:normal)
+  .col-md-2.slider-side-right
+    = link_to '>', 'javascript:setSlide("next")', class: 'btn btn-default'
 
-%h2 History
-%p Donec congue, tellus in malesuada fermentum, sem dui tristique diam, sit amet posuere eros metus vitae augue. Vivamus metus sem, imperdiet nec lacinia vitae, ornare non erat. Aliquam pharetra, turpis ut ornare pellentesque, lectus odio semper nibh, non tristique massa arcu id ante. Vestibulum nisi libero, tempor nec dolor nec, tempus iaculis lorem. Phasellus mauris sapien, bibendum ut convallis quis, feugiat ac nibh. Donec lacinia eget mauris eu congue. Nulla at enim eget risus molestie efficitur nec et erat. Fusce at iaculis purus. Morbi eget finibus odio. Donec ac sodales lectus, id finibus felis. Proin tempor gravida arcu ut ultrices. Aliquam quis cursus risus. Vivamus nisi augue, congue nec faucibus eu, congue eu orci. Nulla pulvinar, nisi at pellentesque tincidunt, ligula ex pellentesque tortor, a iaculis ante quam at lectus.
+%h2.h2-header History
+%p#history Donec congue, tellus in malesuada fermentum, sem dui tristique diam, sit amet posuere eros metus vitae augue. Vivamus metus sem, imperdiet nec lacinia vitae, ornare non erat. Aliquam pharetra, turpis ut ornare pellentesque, lectus odio semper nibh, non tristique massa arcu id ante. Vestibulum nisi libero, tempor nec dolor nec, tempus iaculis lorem. Phasellus mauris sapien, bibendum ut convallis quis, feugiat ac nibh. Donec lacinia eget mauris eu congue. Nulla at enim eget risus molestie efficitur nec et erat. Fusce at iaculis purus. Morbi eget finibus odio. Donec ac sodales lectus, id finibus felis. Proin tempor gravida arcu ut ultrices. Aliquam quis cursus risus. Vivamus nisi augue, congue nec faucibus eu, congue eu orci. Nulla pulvinar, nisi at pellentesque tincidunt, ligula ex pellentesque tortor, a iaculis ante quam at lectus.
 .row.text-center.ingredients
   .col-md-3
     = image_tag 'ingredients/water.jpg', size: '180x150'
@@ -20,14 +24,16 @@
     = image_tag 'ingredients/hops.jpg', size: '180x150'
   .col-md-3
     = image_tag 'ingredients/yeasts.jpg', size: '180x150'
-%h2 Already tasted
-%p 
-  %ul.style_list
-    - @styles.each_slice(3) do |slice|
-      .row
-        - slice.each do |style|
-          .col-md-4
-            %li= link_to style.name, beers_main_path(style_id: style.id)
+%h2.h2-header Already tasted
+%ul#tasted
+  - @styles.each_slice(3) do |slice|
+    .row
+      - slice.each do |style|
+        .col-md-4
+          %li
+            = link_to style.name, beers_main_path(style_id: style.id)
+            %span.badge
+              = style.beers.count
     
 - @beers.each_slice(3) do |slice|
   .row

@@ -20,6 +20,11 @@ var num = -1;
 var timer1 = 0;
 var timer2 = 0;
  
+function startSlider() {
+  $('#slide'+num).fadeIn('500');
+  timer1 = setTimeout("changeSlide()", 500);
+}
+
 function setSlide(id) {
   clearTimeout(timer1);
   clearTimeout(timer2);
@@ -39,13 +44,15 @@ function setSlide(id) {
 }
 
 function hideSlide() {
-  $('#slide'+num).fadeOut('500');
+  $('#slide'+num).fadeOut('500');  
+  document.getElementById('slider-nav-'+num).className = 'btn btn-default';
 }
 
 function changeSlide() {
   num++; if (num>2) num=0; else if (num<0) num=2
   var id = "#slide" + num;
   $(id).fadeIn('500');
+  document.getElementById('slider-nav-'+num).className = 'btn btn-primary';
 
   timer1 = setTimeout("changeSlide()", 5000);
   timer2 = setTimeout("hideSlide()", 4500);
