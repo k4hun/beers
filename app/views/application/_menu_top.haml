@@ -2,6 +2,7 @@
   .container
     .navbar-header
       %a.navbar-brand.logo_img{href: root_path}
+        = image_tag 'logo2.png'
     %ul.menu.nav-justified
       %li 
         = link_to (image_tag 'menu/beers.png', size: '100x100'), beers_main_path
