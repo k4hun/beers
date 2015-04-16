@@ -4,6 +4,14 @@ module ApplicationHelper
   end
 
   def recently_commented
-    Beer.order(:name).limit(7)
+    Comment.order(created_at: :desc).limit(7)
+  end
+
+  def recent_beers
+    Beer.order(created_at: :desc)
+  end
+
+  def last_comment_author(beer_id)
+    Beer.find(beer_id).comments.last.author
   end
 end

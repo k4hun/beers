@@ -1,9 +1,16 @@
-%h2 Styles
+%h2.h2-header Recent beers
+%ul
+  - recent_beers.take(5).each do |beer|
+    %li= link_to beer.name, show_beer_path(beer.id)
+%h2.h2-header Styles
 %ul
   - side_styles.each do |style|
     %li= link_to style.name, beers_main_path(style_id: style.id)
 
-%h2 Recently commented
+%h2.h2-header Recently commented
 %ul
-  - recently_commented.each do |beer|
-    %li= link_to beer.name, show_beer_path(id: beer.id)
+  - recently_commented.each do |comment|
+    %li
+      %strong= link_to comment.beer.name, show_beer_path(id: comment.beer.id)
+      by
+      = last_comment_author(comment.beer.id)
