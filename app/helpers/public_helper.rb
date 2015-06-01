@@ -6,7 +6,7 @@ module PublicHelper
   def rating_stars(rating)
     stars = []
     rating.times do
-      stars << image_tag('rate_star.png', size: "20x20")
+      stars << image_tag('rate_star.png', size: '20x20')
     end
     stars
   end

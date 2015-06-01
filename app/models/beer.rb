@@ -3,15 +3,15 @@ class Beer < ActiveRecord::Base
   belongs_to :brewery
   has_many :comments
 
-  has_attached_file :photo, :styles => { :normal => "800x600>", :thumb => "200x150>"}
+  has_attached_file :photo, styles: { normal: '800x600>', thumb: '200x150>' }
 
-  validates_attachment_content_type :photo, 
-                                    :content_type => /^image\/(png|gif|jpeg)/, 
-                                    :message => "Wrong file type! Use PNG, JPEG or GIF."
+  validates_attachment_content_type :photo,
+                                    content_type: %r{/^image\/(png|gif|jpeg)/},
+                                    sage: 'Wrong file type! Use PNG, JPEG or GIF.'
 
   validates_attachment_size :photo,
-                            :in => 0..2500.kilobytes,
-                            :message => "Image size too big. Max size: 2500kB"  
+                            in: 0..2500.kilobytes,
+                            message: 'Image size too big. Max size: 2500kB'
 
   validates :name, presence: true
   validates :description, presence: true
@@ -19,8 +19,8 @@ class Beer < ActiveRecord::Base
   validates :brewery, presence: true
 
   scope :latest, -> { order('created_at DESC') }
-  scope :by_style, -> (style){ where('style_id = ?', style) }
-  scope :by_brewery, -> (brewery){ where('brewery_id = ?', brewery) }
+  scope :by_style, -> (style) { where('style_id = ?', style) }
+  scope :by_brewery, -> (brewery) { where('brewery_id = ?', brewery) }
   self.per_page = 9
 
   def self.search(options = {})
