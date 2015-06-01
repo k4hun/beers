@@ -5,11 +5,36 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body{onload:'startSlider()'}
-    = render 'menu_top'
+  %body{onload: 'startSlider()'}
+    .side-menu
+      .hide-menu
+        .glyphicon.glyphicon-arrow-left
+      %ul
+        %li.beers_link 
+          = link_to (image_tag 'menu/beers.png', size: '100x100'), beers_main_path(anchor: 'beers')
+          = link_to 'beers', beers_main_path(anchor: 'beers')
+        %li.shops_link
+          = link_to (image_tag 'menu/shops.png', size: '100x100'), beers_main_path(anchor: 'shops')
+          = link_to 'where to buy', beers_main_path(anchor: 'shops')
+        %li
+          = link_to (image_tag 'menu/about.png', size: '100x100'), beers_main_path(anchor: 'about')
+          = link_to 'about me', beers_main_path(anchor: 'about')
+        %li
+          = link_to (image_tag 'menu/contact.png', size: '100x100'), beers_main_path(anchor: 'contact')
+          = link_to 'contact', beers_main_path(anchor: 'contact')
+    .top-cups
+      .icon-menu
+        .glyphicon.glyphicon-menu-hamburger 
+        Menu
+    %hr
     .container
-      .col-md-9
-        = flash[:error] if flash[:error].present?
-        .main-content= yield
-      .col-md-3.styles
-        = render 'styles'
+      =render file: 'public/beers'
+    %hr
+    .container
+      =render file: 'public/shops'
+    %hr
+    .container
+      =render file: 'public/about'
+    %hr
+    .container
+      =render file: 'public/contact'

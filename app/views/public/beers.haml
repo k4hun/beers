@@ -1,4 +1,11 @@
-= render 'content_header'
+.row.content-header
+  %h1
+    .col-md-2
+      = image_tag "menu/beers.png", size: '100x100'
+    .col-md-8.text-center#beers
+      BEERS
+    .col-md-2
+      = image_tag "menu/beers.png", size: '100x100'
 
 .beers-slider.text-center
   .slider-nav
@@ -24,33 +31,31 @@
     = image_tag 'ingredients/hops.jpg', size: '180x150'
   .col-md-3
     = image_tag 'ingredients/yeasts.jpg', size: '180x150'
-%h2.h2-header Already tasted
-%ul#tasted
+%h2.h2-header#tasted Already tasted
+%ul#tasted_list
   - @styles.each_slice(3) do |slice|
     .row
       - slice.each do |style|
         .col-md-4
           %li
-            = link_to style.name, beers_main_path(style_id: style.id)
+            = link_to style.name, beers_main_path(style_id: style.id, anchor: 'tasted')
             %span.badge
               = style.beers.count
     
-- @beers.each_slice(3) do |slice|
-  .row
-  - slice.each do |beer|
-    .col-md-4
-      .thumbnail  
-        = beer.photo.present? ? (image_tag beer.photo.url(:normal), class: 'img-thumbnail') : '---'
-        .caption
-          %h3= beer.name
-          %h4
-            = link_to beer.style.name, beers_main_path(style_id: beer.style.id)
-            from 
-            = link_to beer.brewery.name, beers_main_path(brewery_id: beer.brewery.id)
-          %p
-            -rating_stars(beer.rating).each do |image|
-              = image
-          %p
-            = short_desc(beer.description)
-            = link_to 'more', show_beer_path(beer.id)
-.col-md-12.text-center.apple_pagination= will_paginate @beers
+- @beers.each do |beer|
+  .col-md-4#pages
+    .thumbnail  
+      = beer.photo.present? ? (image_tag beer.photo.url(:normal), class: 'img-thumbnail') : (image_tag 'no_image.gif', size: '330x440', class: 'img-thumbnail')
+      .caption
+        %h3= beer.name
+        %h4
+          = link_to beer.style.name, beers_main_path(style_id: beer.style.id)
+          from 
+          = link_to beer.brewery.name, beers_main_path(brewery_id: beer.brewery.id)
+        %p
+          -rating_stars(beer.rating).each do |image|
+            = image
+        %p
+          = short_desc(beer.description)
+          = link_to 'more', show_beer_path(beer.id)
+.col-md-12.text-center.apple_pagination= will_paginate @beers, params: { anchor: 'pages'}

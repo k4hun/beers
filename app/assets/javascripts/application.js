@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// = require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 
@@ -58,3 +58,31 @@ function changeSlide() {
   timer2 = setTimeout("hideSlide()", 4500);
 }
 
+var main = function() {
+  console.log("asdasdasd");
+  $('.icon-menu').click(function() {
+    $('.side-menu').animate({
+      left: "0px"
+    }, 500);
+    $('.icon-menu').fadeOut();
+  });
+
+  $('.hide-menu').click(function() {
+    $('.side-menu').animate({
+      left: "-120px"
+    }, 500);
+    $('.icon-menu').fadeIn();
+  });
+};
+
+$(document).scroll(function () {
+    if ($(this).scrollTop() > 830) {
+        $(".icon-menu").css('color', '#000000');
+    }
+    else {
+        $(".icon-menu").css('color', '#ffffff')
+    }
+});
+
+$(document).ready(main);
+$(document).on('page:load', main)

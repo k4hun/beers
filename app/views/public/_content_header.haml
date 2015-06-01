@@ -2,7 +2,7 @@
   %h1
     .col-md-2
       = image_tag "menu/#{params[:action]}.png", size: '100x100'
-    .col-md-8.text-center
+    .col-md-8.text-center{id: params[:action]}
       = params[:action]
     .col-md-2
       = image_tag "menu/#{params[:action]}.png", size: '100x100'

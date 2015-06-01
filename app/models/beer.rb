@@ -21,7 +21,7 @@ class Beer < ActiveRecord::Base
   scope :latest, -> { order('created_at DESC') }
   scope :by_style, -> (style) { where('style_id = ?', style) }
   scope :by_brewery, -> (brewery) { where('brewery_id = ?', brewery) }
-  self.per_page = 9
+  self.per_page = 3
 
   def self.search(options = {})
     beers = Beer.all

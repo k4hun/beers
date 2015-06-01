@@ -21,130 +21,57 @@
         src: font-url('coleen.ttf') format("truetype");
 }
 
-.container {
-  font-family: "Verdana";
-  font-size: 15px;
-}
-
-.menu {
-  text-align: center;
-  font-family: "Coleen";
-  font-size: 25px;
-  background: #421127;
-  padding-top: 10px;
-
-  a, a:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-.navbar, .logo_img, .menu {
-  height: 148px;
-}
-
-.logo_img {
-  padding: 0px;
-  display: block;
-  width: 381px;
-}
-
-.main-content {
-  margin-top:148px;
-}
-
-.beers-slider {
-  height: 700px;
-}
-
-.slider-nav {
-  margin-bottom: 10px;
-}
-
-.slider-side-left, .slider-side-right {
-  padding-top: 300px
-}
-
-.slider-item {
-  display: none;
-}
-
-.content-header {
-  font-family: "Coleen";ub
-  margin-bottom: 15px;
-  .text-center {
-   font-size: 120px;
-  }
-}
-
-.h2-header {
-  font-family: "Coleen";
+.side-menu {
+  width: 120px;
+  position: fixed;
+  left: -120px;
+  background: #000000;
   text-align: center;
 }
 
-#tasted { 
-  text-align: center;
-  list-style-type: none;
-  padding-left: 0px;
-  a {     
-    color: black;  
-  }
-  a:hover {
-    text-decoration: none;
-    color: #fe5f35;
-  }
-  li {
-    padding-bottom: 5px;
-  }
-}
-
-.ingredients {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.styles {
-  margin-top: 148px;
-  background: #421127;
-  color: white;
-  a {
-   color: white;
-  }
-  a:hover {
-    text-decoration: none;
-    color: #fe5f35;
-  }
+.side-menu {
   ul {
-    padding-left: 0px;
-    list-style-type: none;
-    text-align: center;
+  list-style: none;
+  padding: 0px;
+  }
+  li a, a:hover {
+  font-family: Coleen;
+  color: #ffffff;
+  font-size: 25px;
+  text-decoration:none;
   }
 }
 
-.apple_pagination {
-  background: #f1f1f1;
-  border: 1px solid #e5e5e5;
+.top-cups {
+  background-image: url('cups_horizontal.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 930px;
+  width: 100%;
+  border-bottom: solid 5px;
+}
+
+.icon-menu {
+  position:fixed;
+  padding: 70px 0px 0px 50px;
+  color: #fe5f35;
+  font-family: 'Coleen';
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.line {
+  padding: 100px 0px 0px 5px;
+}
+
+.hide-menu {
   text-align: center;
-  padding: 1em;
-  cursor: default; }
-  .apple_pagination a, .apple_pagination span {
-    padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
-    color: #aaaaaa; }
-  .apple_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .apple_pagination a {
-    text-decoration: none;
-    color: black; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
+  font-size: 25px;
+  margin: 30px 0px 20px 0px;
+  color: #ffffff;
+}
+
+.beers {
+  border-top: solid 25px0px;
+  color: black;
+}
