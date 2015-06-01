@@ -60,6 +60,16 @@
   cursor: pointer;
 }
 
+.logo-top {
+  background-image: url(logo.png);
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left:40%;
+  height:148px;
+  width:381px;
+}
+
 .line {
   padding: 100px 0px 0px 5px;
 }
