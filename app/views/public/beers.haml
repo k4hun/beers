@@ -14,9 +14,10 @@
     = link_to '3', 'javascript:setSlide(2)', class: 'btn btn-default', id: 'slider-nav-2'
   .col-md-2.slider-side-left
     = link_to '<', 'javascript:setSlide("prev")', class: 'btn btn-default'
+
   .col-md-8
     - @recent_beers.take(3).each_with_index do |beer, index|
-      .slider-item{id: "slide#{index}"}= image_tag beer.photo.url(:normal)
+      .slider-item{id: "slide#{index}"}= beer.photo.present? ? (image_tag beer.photo.url(:normal)) : (image_tag 'no_image.gif', size: '330x440', class: 'img-thumbnail')
   .col-md-2.slider-side-right
     = link_to '>', 'javascript:setSlide("next")', class: 'btn btn-default'
 
