@@ -6,7 +6,7 @@ class Beer < ActiveRecord::Base
   has_attached_file :photo, styles: { normal: '800x600>', thumb: '200x150>' }
 
   validates_attachment_content_type :photo,
-                                    content_type: %r{/^image\/(png|gif|jpeg)/},
+                                    content_type: /^image\/(png|gif|jpeg)/,
                                     sage: 'Wrong file type! Use PNG, JPEG or GIF.'
 
   validates_attachment_size :photo,
