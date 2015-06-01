@@ -3,7 +3,7 @@ class Brewery < ActiveRecord::Base
   has_attached_file :logo, styles: { thumb: '150x150>' }
 
   validates_attachment_content_type :logo,
-                                    content_type: %r{/^image\/(png|gif|jpeg)/},
+                                    content_type: /^image\/(png|gif|jpeg)/,
                                     message: 'Wrong file type! Use PNG, JPEG or GIF.'
 
   validates_attachment_size :logo,
