@@ -57,5 +57,5 @@
             = image
         %p
           = short_desc(beer.description)
-          = link_to 'more', show_beer_path(beer.id)
+          = link_to 'more', show_beer_path(beer.id, anchor: 'show')
 .col-md-12.text-center.apple_pagination= will_paginate @beers, params: { anchor: 'pages'}

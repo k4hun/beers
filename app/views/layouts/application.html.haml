@@ -27,14 +27,18 @@
         .glyphicon.glyphicon-menu-hamburger 
         Menu
     %hr
-    .container
-      =render file: 'public/beers'
-    %hr
-    .container
-      =render file: 'public/shops'
-    %hr
-    .container
-      =render file: 'public/about'
-    %hr
-    .container
-      =render file: 'public/contact'
+    - if params[:action] == 'beers'
+      .container
+        =render file: 'public/beers'
+      %hr
+      .container
+        =render file: 'public/shops'
+      %hr
+      .container
+        =render file: 'public/about'
+      %hr
+      .container
+        =render file: 'public/contact'
+    - else
+      .container
+        = yield
