@@ -59,7 +59,6 @@ function changeSlide() {
 }
 
 var main = function() {
-  console.log("asdasdasd");
   $('.icon-menu').click(function() {
     $('.side-menu').animate({
       left: "0px"
